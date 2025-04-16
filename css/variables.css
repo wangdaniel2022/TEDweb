@@ -1,0 +1,63 @@
+:root {
+  /* 颜色变量 */
+  --color-primary: #5151f2;
+  --color-primary-light: rgba(81, 81, 242, 0.23);
+  --color-secondary: #1d1d21;
+  --color-text: #2a2a2a;
+  --color-text-light: #666666;
+  --color-background: #ffffff;
+  --color-background-dark: #fbfaf9;
+  --color-card-bg: rgba(255, 255, 255, 0.1);
+  --color-card-border: rgba(255, 255, 255, 0.2);
+  --color-card-shadow: rgba(81, 81, 242, 0.15);
+
+  /* 间距变量 */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-xxl: 5rem;
+
+  /* 字体变量 */
+  --font-family-base: 'Inter', sans-serif;
+  --font-family-headings: 'Inter', sans-serif;
+  
+  /* 字体大小变量 */
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-md: 1rem;      /* 16px */
+  --font-size-lg: 1.25rem;   /* 20px */
+  --font-size-xl: 1.5rem;    /* 24px */
+  --font-size-xxl: 2rem;     /* 32px */
+  --font-size-huge: 2.5rem;  /* 40px */
+  --font-size-mega: 3.5rem;  /* 56px */
+  
+  /* 字体粗细变量 */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* 圆角边框变量 */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+  --border-radius-xl: 1.5rem;
+  --border-radius-pill: 100px;
+  
+  /* 阴影变量 */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.15);
+  
+  /* 过渡动画变量 */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* 容器宽度变量 */
+  --container-max-width: 1200px;
+  --container-padding: 1rem;
+} 

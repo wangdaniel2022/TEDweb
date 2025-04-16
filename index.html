@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>杭州文三AI消费者嘉年华</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    body {
+      background-color: #f5f7fa;
+      color: #000;
+    }
+    
+    .content-box {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      padding: 40px;
+      margin: 30px auto;
+      max-width: 1200px;
+      position: relative;
+      z-index: 1;
+      color: #000;
+    }
+    
+    .section-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      border-radius: 16px;
+      opacity: 0.1;
+    }
+    
+    .section-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .section-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .section-header h2, 
+    .section-title {
+      color: #000;
+      font-weight: 700;
+    }
+    
+    .section-subtitle {
+      color: #000;
+    }
+    
+    .container {
+      background-color: #f5f7fa;
+      padding: 0 20px;
+    }
+    
+    .hero, .countdown, .footer, .header {
+      max-width: 100%;
+      margin: 0 auto;
+      background: transparent;
+      box-shadow: none;
+    }
+    
+    /* 卡片样式 */
+    .card, .guest-card, .ticket-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover, .guest-card:hover, .ticket-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+    
+    /* 文字颜色 */
+    .card__title, .guest-card__name, .ticket-card__type {
+      color: #000;
+      font-weight: 600;
+    }
+    
+    .card__description, .guest-card__title, .ticket-card__feature {
+      color: #000;
+    }
+    
+    /* 倒计时文字颜色 */
+    .countdown__text {
+      color: #000;
+    }
+    
+    /* 导航链接文字颜色 */
+    .nav__link {
+      color: #000;
+    }
+    
+    /* 页脚文字颜色 */
+    .footer__contact-title, 
+    .footer__contact-text, 
+    .footer__link, 
+    .footer__copyright {
+      color: #000;
+    }
+    
+    /* 按钮样式 */
+    .btn {
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .btn--primary {
+      background: linear-gradient(135deg, #5151f2, #9d4edd);
+      color: white; /* 保持按钮文字为白色，以确保可读性 */
+    }
+    
+    .btn--secondary {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      color: #000;
+    }
+    
+    .ticket-card__btn {
+      color: white; /* 保持按钮文字为白色，以确保可读性 */
+    }
+    
+    /* 日程表样式 */
+    .schedule__tab-btn {
+      background: white;
+      color: #000;
+      border: 1px solid #eee;
+      border-radius: 8px 8px 0 0;
+      padding: 12px 24px;
+      font-weight: 600;
+    }
+    
+    .schedule__tab-btn.active {
+      background: linear-gradient(135deg, #5151f2, #9d4edd);
+      color: white; /* 保持活动按钮文字为白色，以确保可读性 */
+      border: none;
+    }
+    
+    .schedule__item {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .schedule__time {
+      color: #000;
+      font-weight: 600;
+    }
+    
+    .schedule__event {
+      color: #000;
+    }
+    
+    .schedule__day-title {
+      color: #000;
+    }
+    
+    /* 合作伙伴文字 */
+    .partners__category-title,
+    .partners__logo-name {
+      color: #000;
+    }
+    
+    /* 场地交通文字 */
+    .venue__info-title,
+    .venue__info-text,
+    .transport-item__title,
+    .transport-item__text {
+      color: #000;
+    }
+    
+    /* 特性描述文字 */
+    .feature__title,
+    .feature__subtitle,
+    .feature__description {
+      color: #000;
+    }
+    
+    @media (max-width: 768px) {
+      .content-box {
+        padding: 20px;
+        margin: 15px auto;
+        border-radius: 12px;
+      }
+    }
+    
+    /* 修复英雄区域背景图 */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ffb6e6 0%, #c9a0ff 50%, #a2c0ff 100%);
+    }
+    
+    .hero__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    
+    .hero__bg-img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    /* 修复3D装饰图片样式 */
+    .hero__decoration {
+      position: absolute;
+      right: 10%;
+      top: 50%;
+      transform: translateY(-50%);
+      max-height: 70%;
+      width: auto;
+      z-index: 1;
+      opacity: 0.9;
+      object-fit: contain;
+    }
+    
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 10%;
+    }
+    
+    /* 修复主办方边框过长问题 */
+    .hero__organizer {
+      display: inline-block; /* 使容器宽度适应内容 */
+      border: 1px solid rgba(0, 0, 0, 0.5); /* 黑色边框 */
+      border-radius: 30px; /* 圆角边框 */
+      padding: 5px 20px; /* 内边距 */
+      background: rgba(255, 255, 255, 0.2); /* 半透明白色背景 */
+      max-width: fit-content; /* 适应内容宽度 */
+    }
+    
+    /* 调整主办方文字样式 */
+    .hero__organizer-label,
+    .hero__organizer-name {
+      color: #000;
+      font-size: 14px;
+    }
+    
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      .hero__content {
+        padding-top: 80px; /* 增加顶部内边距，为主办方文字留出空间 */
+      }
+      
+      .hero__organizer {
+        margin-top: 20px; /* 增加主办方标签的顶部边距 */
+      }
+      
+      .hero__decoration {
+        top: auto; /* 取消相对位置 */
+        bottom: 50px; /* 从底部定位 */
+        right: 5%;
+        transform: none; /* 取消Y轴平移 */
+        max-height: 40%;
+        opacity: 0.7;
+        z-index: 1; /* 确保在内容之上 */
+      }
+      
+      .hero__buttons {
+        position: relative;
+        z-index: 2;
+        margin-bottom: 120px; /* 为3D装饰图留出更多空间 */
+      }
+    }
+    
+    /* 更小的屏幕进一步优化 */
+    @media (max-width: 480px) {
+      .hero__content {
+        padding-top: 60px;
+      }
+      
+      .hero__decoration {
+        bottom: 100px; /* 在小屏幕上调整位置 */
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%); /* 水平居中 */
+        max-height: 30%;
+        opacity: 0.6;
+      }
+      
+      .hero__buttons {
+        margin-bottom: 140px; /* 更小屏幕上增加间距 */
+      }
+    }
+
+    /* 更新合作单位板块样式 */
+    .partners-section {
+      background-color: white;
+      border-radius: 16px;
+      padding: 40px;
+      margin: 30px auto;
+      position: relative;
+    }
+
+    .partners__logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: flex-start; /* 左对齐 */
+      margin-bottom: 30px;
+    }
+
+    .partners__logo {
+      flex: 0 0 auto;
+      width: 160px;
+      height: 90px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .partners__logo-img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin: 0 auto 15px;
+    }
+
+    .partners__logo-name {
+      font-size: 12px;
+      color: #333;
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .partners__category-title {
+      font-size: 20px;
+      margin-bottom: 20px;
+      position: relative;
+      font-weight: 600;
+      color: #4A4A4A;
+      border-left: 4px solid #5151f2;
+      padding-left: 10px;
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      .partners__logos {
+        gap: 10px;
+      }
+      
+      .partners__logo {
+        width: calc(50% - 10px);
+        padding: 10px;
+      }
+    }
+
+    /* 添加合作单位样式 */
+    .partner-category {
+      margin-bottom: 30px;
+    }
+
+    .partner-category-title {
+      color: #5151f2;
+      font-family: "Inter-Bold", sans-serif;
+      font-size: 24px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      border-left: 4px solid #5151f2;
+      padding-left: 10px;
+    }
+
+    .partner-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .partner-logo {
+      width: 180px;
+      height: 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .partner-logo img {
+      max-width: 100%;
+      max-height: 50px;
+      object-fit: contain;
+      margin-bottom: 8px;
+    }
+
+    .partner-logo .logo-name {
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+      margin-top: 5px;
+      font-weight: 500;
+    }
+
+    .partner-logo:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+      .partner-logos {
+        gap: 10px;
+      }
+      
+      .partner-logo {
+        width: 120px;
+        height: 70px;
+        padding: 10px;
+      }
+      
+      .partner-logo img {
+        max-height: 40px;
+      }
+      
+      .partner-logo .logo-name {
+        font-size: 10px;
+      }
+    }
+
+    /* 针对移动端优化页脚布局，减少不必要的空白 */
+    @media (max-width: 768px) {
+      .footer {
+        margin-top: 30px;
+        padding-top: 10px;
+      }
+      
+      .footer__container {
+        padding: 0 15px;
+      }
+      
+      .footer__top {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .footer__logo {
+        margin-bottom: 10px;
+      }
+      
+      .footer__logo-img {
+        max-width: 120px;
+        margin: 0 auto;
+      }
+      
+      .footer__contact {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 15px;
+      }
+      
+      .footer__contact-item {
+        flex: 0 0 48%;
+        margin-bottom: 10px;
+      }
+      
+      .footer__contact-title {
+        font-size: 14px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 5px;
+      }
+      
+      .footer__contact-text {
+        font-size: 12px;
+        margin: 3px 0;
+      }
+      
+      .footer__bottom {
+        margin-top: 15px;
+        padding-top: 10px;
+      }
+      
+      .footer__copyright {
+        font-size: 12px;
+      }
+    }
+
+    /* 特小屏幕的进一步优化 */
+    @media (max-width: 480px) {
+      .footer__contact-item {
+        flex: 0 0 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 导航栏 -->
+    <header class="header">
+      <div class="header__content">
+        <div class="logo-group">
+          <img src="logos/xihu-group.png" alt="西湖文旅集团" class="logo-img">
+          <a href="#" class="logo">
+            <img src="logo-10.png" alt="杭州文三AI消费者嘉年华">
+          </a>
+        </div>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item"><a href="#guests" class="nav__link">特邀嘉宾</a></li>
+            <li class="nav__item"><a href="#schedule" class="nav__link">活动日程</a></li>
+            <li class="nav__item"><a href="#tickets" class="nav__link">观众参与</a></li>
+            <li class="nav__item"><a href="#venue" class="nav__link">场地交通</a></li>
+            <li class="nav__item"><a href="#partners" class="nav__link">合作单位</a></li>
+          </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="切换菜单">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+      <div class="hero__bg">
+        <img src="bg0.png" alt="背景图片" class="hero__bg-img">
+      </div>
+      <div class="hero__content">
+        <div class="hero__organizer">
+          <span class="hero__organizer-label">主办方：</span>
+          <span class="hero__organizer-name">杭州市西湖区商务局/西湖文旅集团/西湖区科协</span>
+        </div>
+        <h1 class="hero__title">
+          <span class="hero__title-main">杭州文三</span>
+          <span class="hero__title-sub">AI消费者嘉年华</span>
+        </h1>
+        <p class="hero__date">2025年4月30日-5月4日 中国 · 浙江 · 杭州</p>
+        <p class="hero__slogan">X+AI 解锁文三AI超级现场<br>Unlock future consumer trends</p>
+        <div class="hero__buttons">
+          <a href="https://hdxu.cn/14cbv" target="_blank" class="btn btn--primary">立即购票</a>
+          <a href="https://owu1udtjs4p.feishu.cn/share/base/form/shrcnsMeOa7FOc6grbV6Q26OFGd" target="_blank" class="btn btn--secondary">项目方报名</a>
+        </div>
+        <img src="_1-27-10.png" alt="装饰图" class="hero__decoration">
+      </div>
+    </section>
+
+    <!-- 倒计时 -->
+    <section class="countdown">
+      <p class="countdown__text" id="countdown">距离活动开始还剩： 计算中...</p>
+    </section>
+
+    <!-- 关于我们 -->
+    <section class="about content-box" id="about">
+      <div class="section-bg">
+        <img src="_8-10.png" alt="背景">
+      </div>
+      <div class="section-content">
+        <div class="about__header">
+          <h2 class="about__title">
+            <span class="about__title-main">文三 X 光圈TED</span>
+            <span class="about__title-sub">AI消费应用大会</span>
+          </h2>
+          <p class="about__info">
+            时间：4月30日-5月4日（4月30日为开幕式）<br>
+            地点：文三路广场
+          </p>
+        </div>
+        
+        <div class="about__features">
+          <div class="feature">
+            <h3 class="feature__title">全国首个AI产业政策试验场</h3>
+            <p class="feature__subtitle">China's First AI Industry Policy Testing Ground</p>
+          </div>
+          <div class="feature">
+            <h3 class="feature__title">全国首创的 AI 政策沙盒</h3>
+            <p class="feature__subtitle">China's First-Ever AI Policy Sandbox</p>
+          </div>
+          <div class="feature">
+            <h3 class="feature__title">杭州数字消费经济成果展示窗</h3>
+            <p class="feature__subtitle">Hangzhou's Digital Consumption Economy Achievements</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 核心亮点 -->
+    <section class="highlights content-box" id="highlights">
+      <div class="section-content">
+        <div class="section-header">
+          <h2 class="section-title">核心亮点：不止于看，更是亲历未来</h2>
+        </div>
+        <div class="highlights__content">
+          <div class="card">
+            <img src="image0.png" alt="LIVE+AI TED开放麦" class="card__img">
+            <div class="card__content">
+              <div class="card__emoji">🎤</div>
+              <h3 class="card__title">LIVE+AI TED开放麦</h3>
+              <p class="card__description">50+前沿AI消费项目现场路演，千名"消费投资人"用真实投票决定项目奖金与未来！</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="image1.png" alt="AI产研/大师分论坛" class="card__img">
+            <div class="card__content">
+              <div class="card__emoji">🎪</div>
+              <h3 class="card__title">AI产研/大师分论坛</h3>
+              <p class="card__description">深度探讨AI技术发展趋势，分享前沿应用案例，共同探讨AI消费的未来！</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="d-3-a-6137-dd-5-dd-621341-ae-080-d-67-dc-1-b-5-10.png" alt="沉浸式AI消费者市集" class="card__img">
+            <div class="card__content">
+              <div class="card__emoji">🌐</div>
+              <h3 class="card__title">沉浸式AI消费者市集</h3>
+              <p class="card__description">30+前沿AI消费项目现场体验，让您亲身体验AI带来的未来生活方式！</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 特邀嘉宾 -->
+    <section class="guests content-box" id="guests">
+      <div class="section-bg">
+        <img src="bg1.png" alt="背景" class="section-bg-img">
+      </div>
+      <div class="section-content">
+        <div class="section-header">
+          <h2 class="section-title">特邀嘉宾</h2>
+          <p class="section-subtitle">更多重磅嘉宾信息即将公布，敬请期待！</p>
+        </div>
+        <div class="guests__grid">
+          <div class="guest-card">
+            <div class="guest-card__img-container">
+              <img src="image3.png" alt="嘉宾照片" class="guest-card__img">
+            </div>
+            <div class="guest-card__info">
+              <h3 class="guest-card__name">待定嘉宾</h3>
+              <p class="guest-card__title">AI CEO</p>
+            </div>
+          </div>
+          <div class="guest-card">
+            <div class="guest-card__img-container">
+              <img src="image5.png" alt="嘉宾照片" class="guest-card__img">
+            </div>
+            <div class="guest-card__info">
+              <h3 class="guest-card__name">待定嘉宾</h3>
+              <p class="guest-card__title">AI CEO</p>
+            </div>
+          </div>
+          <div class="guest-card">
+            <div class="guest-card__img-container">
+              <img src="image7.png" alt="嘉宾照片" class="guest-card__img">
+            </div>
+            <div class="guest-card__info">
+              <h3 class="guest-card__name">待定嘉宾</h3>
+              <p class="guest-card__title">AI CEO</p>
+            </div>
+          </div>
+          <div class="guest-card">
+            <div class="guest-card__img-container">
+              <img src="image9.png" alt="嘉宾照片" class="guest-card__img">
+            </div>
+            <div class="guest-card__info">
+              <h3 class="guest-card__name">待定嘉宾</h3>
+              <p class="guest-card__title">AI CEO</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 活动日程 -->
+    <section class="schedule content-box" id="schedule">
+      <div class="section-bg">
+        <img src="bg2.png" alt="背景" class="section-bg-img">
+      </div>
+      <div class="section-content">
+        <div class="section-header">
+          <h2 class="section-title">活动日程概览</h2>
+          <p class="section-subtitle">*详细议程以现场公布为准。</p>
+        </div>
+        <div class="schedule__container">
+          <div class="schedule__tabs">
+            <div class="schedule__tab-buttons">
+              <button class="schedule__tab-btn active" data-day="day1">5月1日</button>
+              <button class="schedule__tab-btn" data-day="day2">5月2日</button>
+              <button class="schedule__tab-btn" data-day="day3">5月3日</button>
+              <button class="schedule__tab-btn" data-day="day4">5月4日</button>
+            </div>
+            
+            <div class="schedule__tab-content active" id="day1">
+              <h3 class="schedule__day-title">5月1日：开幕式 & 产业峰会</h3>
+              <div class="schedule__timeline">
+                <div class="schedule__item">
+                  <span class="schedule__time">09:30-10:00</span>
+                  <div class="schedule__event">
+                    <p>观众入场签到</p>
+                    <p class="schedule__location">主会场入口/外场市集</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">10:00-10:30</span>
+                  <div class="schedule__event">
+                    <p>开幕式主会场</p>
+                    <p class="schedule__location">文三路0101PARK天幕广场</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">10:30-10:40</span>
+                  <div class="schedule__event">
+                    <p>六小龙机器人演出</p>
+                    <p class="schedule__location">文三路0101PARK天幕广场</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">10:30-12:00</span>
+                  <div class="schedule__event">
+                    <p>分会场：AI C端应用生态分论坛</p>
+                    <p class="schedule__location">文三会客厅</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">10:30-12:00</span>
+                  <div class="schedule__event">
+                    <p>主会场：内场TED路演 + 开放麦</p>
+                    <p class="schedule__location">文三路0101PARK天幕广场</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">12:30-14:00</span>
+                  <div class="schedule__event">
+                    <p>午间自由活动</p>
+                    <p class="schedule__location">外场AI市集</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">14:00-15:30</span>
+                  <div class="schedule__event">
+                    <p>分会场：杭州AI微生态青年科学家论坛</p>
+                    <p class="schedule__location">文三会客厅</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">15:30-17:00</span>
+                  <div class="schedule__event">
+                    <p>超级品牌AI团门会<br>主会场：TED路演最终轮 + 观众投票</p>
+                    <p class="schedule__location">文三路0101PARK天幕广场</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">17:00-17:20</span>
+                  <div class="schedule__event">
+                    <p>闭幕环节</p>
+                    <p class="schedule__location">文三路0101PARK天幕广场</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">17:20-20:00</span>
+                  <div class="schedule__event">
+                    <p>After Party（限VIP及团体票）</p>
+                    <p class="schedule__location">主会场/餐区</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="schedule__tab-content" id="day2">
+              <h3 class="schedule__day-title">5月2日：全民体验日 & 成果转化</h3>
+              <div class="schedule__timeline">
+                <div class="schedule__item">
+                  <span class="schedule__time">09:30-12:00</span>
+                  <div class="schedule__event">
+                    <p>AI消费市集 + AI 消费者挑战体验</p>
+                    <p class="schedule__location">主会场入口/外场市集</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">10:30-12:00</span>
+                  <div class="schedule__event">
+                    <p>分会场：AI C端消费赋能分论坛</p>
+                    <p class="schedule__location">文三会客厅</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">10:30-12:30</span>
+                  <div class="schedule__event">
+                    <p>主会场：内场TED路演 + 开放麦</p>
+                    <p class="schedule__location">文三路0101PARK天幕广场</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">12:30-14:00</span>
+                  <div class="schedule__event">
+                    <p>午间自由活动</p>
+                    <p class="schedule__location">外场AI市集</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">14:00-15:30</span>
+                  <div class="schedule__event">
+                    <p>主会场：X+AI前沿认知开放麦<br>分会场：AI CEO论坛<br>AI消费市集</p>
+                    <p class="schedule__location">文三路0101PARK天幕广场</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">15:30-17:00</span>
+                  <div class="schedule__event">
+                    <p>主会场：TED路演最终轮 + 观众投票<br>超级品牌AI团门会</p>
+                    <p class="schedule__location">文三路0101PARK天幕广场</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">17:00-20:30</span>
+                  <div class="schedule__event">
+                    <p>After Party</p>
+                    <p class="schedule__location">主会场</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">19:30-20:00</span>
+                  <div class="schedule__event">
+                    <p>- AI 体验市集<br>- 光圈AI音乐会</p>
+                    <p class="schedule__location">主会场</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="schedule__tab-content" id="day3">
+              <h3 class="schedule__day-title">5月3日：全民体验日 & 成果转化</h3>
+              <div class="schedule__timeline">
+                <div class="schedule__item">
+                  <span class="schedule__time">09:30-12:00</span>
+                  <div class="schedule__event">
+                    <p>AI消费市集 + AI 消费者挑战体验</p>
+                    <p class="schedule__location">主会场入口/外场市集</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">10:30-12:00</span>
+                  <div class="schedule__event">
+                    <p>分会场：AI C端职业主题分论坛</p>
+                    <p class="schedule__location">文三会客厅</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">10:30-12:30</span>
+                  <div class="schedule__event">
+                    <p>主会场：内场TED路演 + 开放麦</p>
+                    <p class="schedule__location">文三路0101PARK天幕广场</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">12:30-14:00</span>
+                  <div class="schedule__event">
+                    <p>午间自由活动</p>
+                    <p class="schedule__location">外场AI市集</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">14:00-15:30</span>
+                  <div class="schedule__event">
+                    <p>主会场：X+AI前沿认知开放麦<br>分会场：AI CEO论坛<br>AI消费市集</p>
+                    <p class="schedule__location">文三路0101PARK天幕广场</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">15:30-17:00</span>
+                  <div class="schedule__event">
+                    <p>主会场：TED路演最终轮 + 观众投票<br>超级品牌AI团门会</p>
+                    <p class="schedule__location">文三路0101PARK天幕广场</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">17:00-20:30</span>
+                  <div class="schedule__event">
+                    <p>After Party</p>
+                    <p class="schedule__location">主会场</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">19:30-20:00</span>
+                  <div class="schedule__event">
+                    <p>- AI 体验市集<br>- 光圈AI音乐会</p>
+                    <p class="schedule__location">主会场</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="schedule__tab-content" id="day4">
+              <h3 class="schedule__day-title">5月4日：中国AIGC产业联盟论坛 & 闭幕式</h3>
+              <div class="schedule__timeline">
+                <div class="schedule__item">
+                  <span class="schedule__time">09:30-10:00</span>
+                  <div class="schedule__event">
+                    <p>观众入场签到</p>
+                    <p class="schedule__location">主会场入口 / 外场市集</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">10:00-12:00</span>
+                  <div class="schedule__event">
+                    <p>中国AIGC产业联盟论坛</p>
+                    <p class="schedule__location">文三会客厅</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">10:30-12:30</span>
+                  <div class="schedule__event">
+                    <p>主会场：内场TED路演 + 开放麦</p>
+                    <p class="schedule__location">文三路0101PARK天幕广场</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">12:30-14:00</span>
+                  <div class="schedule__event">
+                    <p>午间自由活动</p>
+                    <p class="schedule__location">外场 AI 市集</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">14:00-15:30</span>
+                  <div class="schedule__event">
+                    <p>TED 路演 + 开放麦【社会公益侧】</p>
+                    <p class="schedule__location">文三路0101PARK天幕广场</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">15:30-16:30</span>
+                  <div class="schedule__event">
+                    <p>五四专题 AI 论坛（中国青年专题采访）</p>
+                    <p class="schedule__location">文三会客厅</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">16:30-17:30</span>
+                  <div class="schedule__event">
+                    <p>超级品牌AI团门会<br>闭幕式</p>
+                    <p class="schedule__location">文三路0101PARK天幕广场</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">17:30-19:30</span>
+                  <div class="schedule__event">
+                    <p>AI 生态晚宴（限 VIP 及路演团队）</p>
+                    <p class="schedule__location">主会场 / 餐区</p>
+                  </div>
+                </div>
+                <div class="schedule__item">
+                  <span class="schedule__time">19:30-20:00</span>
+                  <div class="schedule__event">
+                    <p>AI 主题闭幕音乐会</p>
+                    <p class="schedule__location">主会场舞台</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 观众参与 -->
+    <section class="tickets content-box" id="tickets">
+      <div class="section-bg">
+        <img src="bg3.png" alt="背景" class="section-bg-img">
+      </div>
+      <div class="section-content">
+        <div class="section-header">
+          <h2 class="section-title">观众参与</h2>
+          <p class="section-subtitle">选择适合您的参与方式，体验AI消费的未来</p>
+        </div>
+        <div class="tickets__container">
+          <div class="tickets__grid">
+            <div class="ticket-card ticket-card--basic">
+              <div class="ticket-card__header">
+                <h3 class="ticket-card__type">基础体验票</h3>
+                <div class="ticket-card__price">
+                  <span class="ticket-card__amount">9.9</span>
+                  <span class="ticket-card__unit">元</span>
+                </div>
+              </div>
+              <div class="ticket-card__content">
+                <ul class="ticket-card__features">
+                  <li class="ticket-card__feature">✓ 光圈Ai车载商店:任意项目体验</li>
+                </ul>
+              </div>
+              <div class="ticket-card__footer">
+                <a href="https://hdxu.cn/14cbv" target="_blank" class="btn btn--primary ticket-card__btn">立即购买</a>
+              </div>
+            </div>
+            
+            <div class="ticket-card ticket-card--premium">
+              <div class="ticket-card__header">
+                <h3 class="ticket-card__type">TED消费人投资票</h3>
+                <div class="ticket-card__price">
+                  <span class="ticket-card__amount">168</span>
+                  <span class="ticket-card__unit">元</span>
+                </div>
+              </div>
+              <div class="ticket-card__content">
+                <ul class="ticket-card__features">
+                  <li class="ticket-card__feature">✓ TED内场资格</li>
+                  <li class="ticket-card__feature">✓ 价值128元AI机器人定制调酒+饮品</li>
+                  <li class="ticket-card__feature">✓ AI伴手礼：NFC唱片+文三AI智能文旅卡</li>
+                  <li class="ticket-card__feature">✓ 限定1600张（卖完即没）</li>
+                  <li class="ticket-card__feature">✓ 前800张7.5折优惠</li>
+                </ul>
+              </div>
+              <div class="ticket-card__footer">
+                <a href="https://hdxu.cn/14cbv" target="_blank" class="btn btn--primary ticket-card__btn">立即购买</a>
+              </div>
+            </div>
+            
+            <div class="ticket-card ticket-card--vip">
+              <div class="ticket-card__header">
+                <h3 class="ticket-card__type">大佬票</h3>
+                <div class="ticket-card__price">
+                  <span class="ticket-card__amount">368</span>
+                  <span class="ticket-card__unit">元</span>
+                </div>
+              </div>
+              <div class="ticket-card__content">
+                <ul class="ticket-card__features">
+                  <li class="ticket-card__feature">✓ 分论坛任选一场参加</li>
+                  <li class="ticket-card__feature">✓ 限定640张（卖完即没）</li>
+                </ul>
+              </div>
+              <div class="ticket-card__footer">
+                <a href="https://hdxu.cn/14cbv" target="_blank" class="btn btn--primary ticket-card__btn">立即购买</a>
+              </div>
+            </div>
+          </div>
+          <div class="tickets__note">
+            <p>注：所有票种数量有限，售完即止。<br>团体票订购请联系组委会获取特别折扣。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 场地交通 -->
+    <section class="venue content-box" id="venue">
+      <div class="section-bg">
+        <img src="bg4.png" alt="背景" class="section-bg-img">
+      </div>
+      <div class="section-content">
+        <div class="section-header">
+          <h2 class="section-title">场地交通</h2>
+          <p class="section-subtitle">文三路广场 - 杭州创新硅谷中心</p>
+        </div>
+        <div class="venue__container">
+          <div class="venue__info">
+            <div class="venue__address">
+              <h3 class="venue__info-title">活动地址</h3>
+              <p class="venue__info-text">浙江省杭州市西湖区文三路广场（近西湖数源软件园）</p>
+              <h3 class="venue__info-title venue__info-title--trans">交通方式</h3>
+              <div class="venue__transport">
+                <div class="transport-item">
+                  <span class="transport-item__icon">🚇</span>
+                  <div class="transport-item__details">
+                    <h4 class="transport-item__title">地铁</h4>
+                    <p class="transport-item__text">地铁5号线科技大学站，2号出口步行5分钟可达</p>
+                  </div>
+                </div>
+                <div class="transport-item">
+                  <span class="transport-item__icon">🚌</span>
+                  <div class="transport-item__details">
+                    <h4 class="transport-item__title">公交</h4>
+                    <p class="transport-item__text">83路、87路、15路、42路至文三路软件园站下车</p>
+                  </div>
+                </div>
+                <div class="transport-item">
+                  <span class="transport-item__icon">🚗</span>
+                  <div class="transport-item__details">
+                    <h4 class="transport-item__title">自驾</h4>
+                    <p class="transport-item__text">导航至"杭州文三路广场"，有地下停车场（收费）</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="venue__map">
+            <img src="map.png" alt="地图" class="venue__map-img">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 合作单位 -->
+    <section class="partners content-box" id="partners">
+      <div class="section-bg">
+        <img src="bg5.png" alt="背景" class="section-bg-img">
+      </div>
+      <div class="section-content">
+        <div class="section-header">
+          <h2 class="section-title">合作单位</h2>
+          <p class="section-subtitle">感谢各位合作伙伴的大力支持</p>
+        </div>
+        <div class="partners-container">
+          <!-- 主办单位 -->
+          <div class="partner-category">
+            <h3 class="partner-category-title">主办单位</h3>
+            <div class="partner-logos">
+              <div class="partner-logo">
+                <img src="logos/xihu.png" alt="西湖区商务局">
+                <div class="logo-name">杭州市西湖区商务局</div>
+              </div>
+              <div class="partner-logo">
+                <img src="logos/xihu-group.png" alt="西湖文旅集团">
+                <div class="logo-name">西湖文旅集团</div>
+              </div>
+              <div class="partner-logo">
+                <img src="logos/hz-eco.png" alt="西湖区科协">
+                <div class="logo-name">西湖区科协</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 协办单位 -->
+          <div class="partner-category">
+            <h3 class="partner-category-title">协办单位</h3>
+            <div class="partner-logos">
+              <div class="partner-logo">
+                <img src="logos/hangzhou-ai.png" alt="杭州光圈AI">
+                <div class="logo-name">杭州光圈AI</div>
+              </div>
+              <div class="partner-logo">
+                <img src="logos/deep-aigx.png" alt="Deep AIGX">
+                <div class="logo-name">Deep AIGX</div>
+              </div>
+              <div class="partner-logo">
+                <img src="logos/ai-ecosystem.png" alt="杭州AI微生态">
+                <div class="logo-name">杭州AI微生态</div>
+              </div>
+              <div class="partner-logo">
+                <img src="logos/today-ai.png" alt="杭报集团">
+                <div class="logo-name">杭报集团</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 联合协办 -->
+          <div class="partner-category">
+            <h3 class="partner-category-title">联合协办</h3>
+            <div class="partner-logos">
+              <div class="partner-logo">
+                <img src="logos/706.png" alt="706青年社区">
+                <div class="logo-name">706青年社区</div>
+              </div>
+              <div class="partner-logo">
+                <img src="logos/eo.png" alt="初善创投">
+                <div class="logo-name">初善创投</div>
+              </div>
+              <div class="partner-logo">
+                <img src="logos/zj-digital.png" alt="浙江省数智研究院">
+                <div class="logo-name">浙江省数智研究院</div>
+              </div>
+              <div class="partner-logo">
+                <img src="logos/aws.png" alt="AWS亚马逊云创">
+                <div class="logo-name">AWS亚马逊云创</div>
+              </div>
+              <div class="partner-logo">
+                <img src="logos/aigc-alliance.png" alt="AIGC X Youth">
+                <div class="logo-name">AIGC X Youth</div>
+              </div>
+              <div class="partner-logo">
+                <img src="logos/wteam.png" alt="Wteam">
+                <div class="logo-name">Wteam</div>
+              </div>
+              <div class="partner-logo">
+                <img src="logos/garage.png" alt="车库咖啡">
+                <div class="logo-name">车库咖啡</div>
+              </div>
+              <div class="partner-logo">
+                <img src="logos/node-ai.png" alt="节点AI">
+                <div class="logo-name">节点AI</div>
+              </div>
+              <div class="partner-logo">
+                <img src="logos/datawhale.png" alt="Datawhale">
+                <div class="logo-name">Datawhale</div>
+              </div>
+              <div class="partner-logo">
+                <img src="logos/huixiang.png" alt="荟乡科技">
+                <div class="logo-name">荟乡科技</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__top">
+          <div class="footer__logo">
+            <img src="logo-10.png" alt="杭州文三AI消费者嘉年华" class="footer__logo-img">
+          </div>
+          <div class="footer__contact">
+            <div class="footer__contact-item">
+              <h4 class="footer__contact-title">联系我们</h4>
+              <p class="footer__contact-text">邮箱: ai@tedwensan.com</p>
+              <p class="footer__contact-text">电话: 0571-88888888</p>
+            </div>
+            <div class="footer__contact-item">
+              <h4 class="footer__contact-title">关注我们</h4>
+              <div class="footer__social">
+                <a href="#" class="footer__social-link">
+                  <img src="_12.png" alt="微信" class="footer__social-icon">
+                </a>
+                <a href="#" class="footer__social-link">
+                  <img src="_13.png" alt="微博" class="footer__social-icon">
+                </a>
+              </div>
+            </div>
+            <div class="footer__contact-item">
+              <h4 class="footer__contact-title">项目方报名</h4>
+              <a href="https://owu1udtjs4p.feishu.cn/share/base/form/shrcnsMeOa7FOc6grbV6Q26OFGd" target="_blank" class="footer__link">点击这里报名</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p class="footer__copyright">© 2025 杭州文三AI消费者嘉年华. 保留所有权利.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html> 
