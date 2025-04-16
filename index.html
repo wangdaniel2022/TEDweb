@@ -722,6 +722,153 @@
         margin-top: 2px;
       }
     }
+
+    /* 优化嘉宾卡片样式 */
+    .guest-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: fit-content;
+      margin: 0; /* 移除外边距 */
+    }
+    
+    .guest-card__img-container {
+      width: 100%;
+      height: 240px; /* 减小图片容器高度 */
+      overflow: hidden;
+    }
+    
+    .guest-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .guest-card:hover .guest-card__img {
+      transform: scale(1.05);
+    }
+    
+    .guest-card__info {
+      padding: 15px; /* 减小内边距 */
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 0 0 12px 12px;
+    }
+    
+    .guest-card__name {
+      font-size: 18px; /* 减小字体大小 */
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 3px; /* 减小间距 */
+    }
+    
+    .guest-card__title {
+      font-size: 14px; /* 减小字体大小 */
+      color: #5151f2;
+      margin: 3px 0; /* 减小间距 */
+      font-weight: 600;
+    }
+    
+    .guest-card__description {
+      font-size: 13px; /* 减小字体大小 */
+      line-height: 1.4; /* 减小行高 */
+      color: #666;
+      margin-top: 8px; /* 减小间距 */
+    }
+    
+    .guest-card__description p {
+      margin: 3px 0; /* 减小段落间距 */
+    }
+    
+    .guests__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 减小最小宽度 */
+      gap: 15px; /* 减小间距 */
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+      max-height: 600px; /* 设置最大高度 */
+      overflow-y: auto; /* 添加垂直滚动 */
+      scrollbar-width: thin; /* 细滚动条 */
+      scrollbar-color: #5151f2 #f0f0f0; /* 滚动条颜色 */
+    }
+    
+    /* 自定义滚动条样式 */
+    .guests__grid::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    .guests__grid::-webkit-scrollbar-track {
+      background: #f0f0f0;
+      border-radius: 4px;
+    }
+    
+    .guests__grid::-webkit-scrollbar-thumb {
+      background: #5151f2;
+      border-radius: 4px;
+    }
+    
+    .guests__grid::-webkit-scrollbar-thumb:hover {
+      background: #4040d0;
+    }
+    
+    @media (max-width: 768px) {
+      .guest-card__img-container {
+        height: 200px;
+      }
+      
+      .guest-card__info {
+        padding: 12px;
+      }
+      
+      .guest-card__name {
+        font-size: 16px;
+      }
+      
+      .guest-card__title {
+        font-size: 13px;
+      }
+      
+      .guest-card__description {
+        font-size: 12px;
+        line-height: 1.3;
+      }
+      
+      .guests__grid {
+        gap: 12px;
+        max-height: 500px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .guest-card__img-container {
+        height: 180px;
+      }
+      
+      .guest-card__info {
+        padding: 10px;
+      }
+      
+      .guest-card__name {
+        font-size: 15px;
+      }
+      
+      .guest-card__title {
+        font-size: 12px;
+      }
+      
+      .guest-card__description {
+        font-size: 11px;
+        line-height: 1.2;
+      }
+      
+      .guests__grid {
+        gap: 10px;
+        max-height: 400px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -823,7 +970,7 @@
         </div>
         <div class="highlights__content">
           <div class="card">
-            <img src="image0.png" alt="LIVE+AI TED开放麦" class="card__img">
+            <img src="images/imgae1.jpg" alt="LIVE+AI TED开放麦" class="card__img">
             <div class="card__content">
               <div class="card__emoji">🎤</div>
               <h3 class="card__title">LIVE+AI TED开放麦</h3>
@@ -877,29 +1024,87 @@
           </div>
           <div class="guest-card">
             <div class="guest-card__img-container">
-              <img src="image5.png" alt="嘉宾照片" class="guest-card__img">
+              <img src="Guest/CYQ.jpg" alt="蔡元庆" class="guest-card__img">
             </div>
             <div class="guest-card__info">
-              <h3 class="guest-card__name">待定嘉宾</h3>
-              <p class="guest-card__title">AI CEO</p>
+              <h3 class="guest-card__name">蔡元庆</h3>
+              <p class="guest-card__title">AI微生态联合发起人</p>
+              <div class="guest-card__description">
+                <p>共知社联合发起人</p>
+              </div>
             </div>
           </div>
           <div class="guest-card">
             <div class="guest-card__img-container">
-              <img src="image7.png" alt="嘉宾照片" class="guest-card__img">
+              <img src="Guest/DCX.jpg" alt="董成新" class="guest-card__img">
             </div>
             <div class="guest-card__info">
-              <h3 class="guest-card__name">待定嘉宾</h3>
-              <p class="guest-card__title">AI CEO</p>
+              <h3 class="guest-card__name">董成新</h3>
+              <p class="guest-card__title">工信部人工智能AI导师级训练师</p>
+              <div class="guest-card__description">
+                <p>工信部大数据产业基地讲师</p>
+                <p>AIGC讲师联盟特聘讲师</p>
+                <p>AI专家智能体应用与开发</p>
+                <p>前海尔集团技术装备高工专家</p>
+                <p>前赫比国恩启迪决策层经理人</p>
+                <p>AI制造业解决方案专家</p>
+                <p>实体制造与AI融合的践行者，深耕实体制造领域20余年，主导十余个干万级、多个过亿元智能制造项目一站式落地成功实战。</p>
+                <p>数智科技与产业融合践行人，从传统制造业拓展至互联网物联网，现聚焦"人工智能+垂直行业"，专注于AI教育培训、专家智能体应用开发与垂直行业应用场景解决方案，数字化智能化技术与产业深度融合。</p>
+              </div>
             </div>
           </div>
           <div class="guest-card">
             <div class="guest-card__img-container">
-              <img src="image9.png" alt="嘉宾照片" class="guest-card__img">
+              <img src="Guest/DJF.jpg" alt="杜俊锋" class="guest-card__img">
             </div>
             <div class="guest-card__info">
-              <h3 class="guest-card__name">待定嘉宾</h3>
-              <p class="guest-card__title">AI CEO</p>
+              <h3 class="guest-card__name">杜俊锋博士</h3>
+              <p class="guest-card__title">中科院软件所区块链应用实验室项目负责人</p>
+            </div>
+          </div>
+          <div class="guest-card">
+            <div class="guest-card__img-container">
+              <img src="Guest/JJC.jpg" alt="姜际春" class="guest-card__img">
+            </div>
+            <div class="guest-card__info">
+              <h3 class="guest-card__name">姜际春</h3>
+              <p class="guest-card__title">浙江省侨商会常务副会长</p>
+              <div class="guest-card__description">
+                <p>中侨实业发展（杭州）有限公司董事长</p>
+                <p>"2007回乡投资模范浙商"</p>
+                <p>"2008年十大风云浙商"</p>
+              </div>
+            </div>
+          </div>
+          <div class="guest-card">
+            <div class="guest-card__img-container">
+              <img src="Guest/MSQ.jpg" alt="马树强" class="guest-card__img">
+            </div>
+            <div class="guest-card__info">
+              <h3 class="guest-card__name">马树强</h3>
+              <p class="guest-card__title">德国德中文化经济联合会中国事务执行主席</p>
+            </div>
+          </div>
+          <div class="guest-card">
+            <div class="guest-card__img-container">
+              <img src="Guest/MHB.png" alt="马海邦" class="guest-card__img">
+            </div>
+            <div class="guest-card__info">
+              <h3 class="guest-card__name">马海邦</h3>
+              <p class="guest-card__title">六和桥人工智能产业天使基金 董事长</p>
+            </div>
+          </div>
+          <div class="guest-card">
+            <div class="guest-card__img-container">
+              <img src="Guest/MXD.jpg" alt="马小丁" class="guest-card__img">
+            </div>
+            <div class="guest-card__info">
+              <h3 class="guest-card__name">马小丁</h3>
+              <div class="guest-card__description">
+                <p>2022西湖十大杰出青年</p>
+                <p>2023福布斯中国-青年海归菁英100人</p>
+                <p>联合国国际青年日乡村振兴代表</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1438,7 +1643,7 @@
             <div class="footer__contact-item">
               <h4 class="footer__contact-title">联系我们</h4>
               <p class="footer__contact-text">邮箱: ai@tedwensan.com</p>
-              <p class="footer__contact-text">电话: 0571-88888888</p>
+              <p class="footer__contact-text">电话: 131 4706 9063</p>
             </div>
             <div class="footer__contact-item">
               <h4 class="footer__contact-title">关注我们</h4>
