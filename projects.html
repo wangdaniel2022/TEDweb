@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>杭州文三AI消费者嘉年华 - 入选项目明细</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    body {
+      background-color: #f5f7fa;
+      color: #000;
+    }
+    
+    .content-box {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      padding: 40px;
+      margin: 100px auto 30px;
+      max-width: 1200px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* 导航栏毛玻璃效果 */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header__content {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 15px var(--container-padding);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    /* 确保导航链接在毛玻璃效果下清晰可见 */
+    .nav__link {
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .nav__link:hover {
+      color: #5151f2;
+    }
+    
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      .header {
+        background: rgba(255, 255, 255, 0.4);
+      }
+      
+      .header__content {
+        padding: 10px var(--container-padding);
+      }
+    }
+    
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+    
+    .project-card__title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    
+    .project-card__category {
+      display: inline-block;
+      background: linear-gradient(135deg, #5151f2, #9d4edd);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    
+    .project-card__description {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    
+    .project-card__team {
+      color: #888;
+      font-size: 14px;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    
+    .section-subtitle {
+      font-size: 18px;
+      color: #666;
+    }
+    
+    @media (max-width: 768px) {
+      .content-box {
+        padding: 20px;
+        margin: 15px auto;
+      }
+      
+      .project-card {
+        padding: 15px;
+      }
+      
+      .project-card__title {
+        font-size: 18px;
+      }
+      
+      .section-title {
+        font-size: 28px;
+      }
+      
+      .section-subtitle {
+        font-size: 16px;
+      }
+    }
+    
+    /* 导航栏logo自适应 */
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .logo-img {
+      height: 48px;
+      width: auto;
+      transition: all 0.3s ease;
+    }
+    
+    .logo img {
+      height: 48px;
+      width: auto;
+      transition: all 0.3s ease;
+    }
+    
+    /* 导航栏响应式调整 */
+    @media (max-width: 1024px) {
+      .logo-group {
+        gap: 10px;
+      }
+      
+      .logo-img,
+      .logo img {
+        height: 40px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .logo-group {
+        gap: 8px;
+      }
+      
+      .logo-img,
+      .logo img {
+        height: 32px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .logo-group {
+        gap: 5px;
+      }
+      
+      .logo-img,
+      .logo img {
+        height: 28px;
+      }
+      
+      .header__content {
+        padding: 0 10px;
+      }
+    }
+    
+    /* 确保在小屏幕上导航栏不会太挤 */
+    @media (max-width: 360px) {
+      .logo-img,
+      .logo img {
+        height: 24px;
+      }
+      
+      .menu-toggle {
+        transform: scale(0.9);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 导航栏 -->
+    <header class="header">
+      <div class="header__content">
+        <div class="logo-group">
+          <img src="logos/xihu-group.png" alt="西湖文旅集团" class="logo-img">
+          <a href="index.html" class="logo">
+            <img src="logo-10.png" alt="杭州文三AI消费者嘉年华">
+          </a>
+        </div>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item"><a href="index.html" class="nav__link">返回首页</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- 项目明细 -->
+    <section class="content-box">
+      <div class="section-header">
+        <h2 class="section-title">入选项目明细</h2>
+        <p class="section-subtitle">感谢所有参与报名的项目方，以下是成功入选的项目列表</p>
+      </div>
+      
+      <div class="projects-table">
+        <table>
+          <thead>
+            <tr>
+              <th>5月1日</th>
+              <th>5月2日</th>
+              <th>5月3日</th>
+              <th>5月4日</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <h4>上午场</h4>
+                <ul>
+                  <li>元能镜享 - 张伟林</li>
+                  <li>AIGC全球数源中心 - 王哲文</li>
+                  <li>智荟互联 - 许智猛</li>
+                  <li>万物 - 时钱煜</li>
+                  <li>雀说语训 - 李朋程</li>
+                  <li>洛公子AI - 洛公子</li>
+                </ul>
+              </td>
+              <td>
+                <h4>上午场</h4>
+                <ul>
+                  <li>番茄炒蛋 - 金海通</li>
+                  <li>南丁机器人 - 李成华</li>
+                  <li>瀚海坤元 - 余培斌</li>
+                  <li>知屿科技 - 柯吴崑</li>
+                  <li>广州哔哔猫 - 马迅</li>
+                  <li>零异造物 - 孙东来</li>
+                </ul>
+              </td>
+              <td>
+                <h4>上午场</h4>
+                <ul>
+                  <li>凯度洞察 - 刘大佑</li>
+                  <li>中科心知 - 廖晓光</li>
+                  <li>LuCy AI - 李雯希</li>
+                  <li>杭州汪星人 - 刘曦泽</li>
+                  <li>连系APP - 李禹昂</li>
+                  <li>乐聊名片 - 徐孝青</li>
+                </ul>
+              </td>
+              <td>
+                <h4>上午场</h4>
+                <ul>
+                  <li>数策时代 - 杨云良</li>
+                  <li>科星智环 - 张文韬</li>
+                  <li>超级球球 - 大白</li>
+                  <li>百无禁忌 - 蒋宏旻</li>
+                  <li>申壮壮 - 熵链智能</li>
+                  <li>纸壳科技 - 刘家志</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>下午场</h4>
+                <ul>
+                  <li>北冥聆心 - 林晓冬</li>
+                  <li>露电数字 - 刘晓克</li>
+                  <li>智暖银龄 - 唐菲悦</li>
+                  <li>超空间科技 - 刘德泽</li>
+                  <li>赛博创力 - 周芊诺</li>
+                  <li>魔法卟卟 - 周泽亚</li>
+                </ul>
+              </td>
+              <td>
+                <h4>下午场</h4>
+                <ul>
+                  <li>甬智AI - 程瑾</li>
+                  <li>三个钓鱼佬 - 谭轶骅</li>
+                  <li>无限语研 - Manta</li>
+                  <li>埃逻科技 - 谢佳豪</li>
+                  <li>万物有灵 - 王奥博</li>
+                  <li>白日梦吴 - 卓佳</li>
+                </ul>
+              </td>
+              <td>
+                <h4>下午场</h4>
+                <ul>
+                  <li>智连AI - 黄佳伟</li>
+                  <li>壹刻校园 - 张亚飞</li>
+                  <li>AI2后说 - 云尚</li>
+                  <li>新颐欣医疗 - 杨钢</li>
+                  <li>时间官 - 童海业</li>
+                  <li>CAX团队 - jenny</li>
+                </ul>
+              </td>
+              <td>
+                <h4>下午场</h4>
+                <ul>
+                  <li>医生之眼 - 张羽明</li>
+                  <li>HealthyMax - 马健文</li>
+                  <li>宠有灵犀 - 胡旭辉</li>
+                  <li>生生科技 - 刘骁奔</li>
+                  <li>ParFlow.AI - 蒙乙锋</li>
+                  <li>OK简历 - 徐畅</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <style>
+      .projects-table {
+        width: 100%;
+        overflow-x: auto;
+        margin: 30px 0;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+      
+      .projects-table table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 0;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      
+      .projects-table th {
+        background: linear-gradient(135deg, #5151f2, #9d4edd);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+        position: relative;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+      }
+      
+      .projects-table th:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 20%;
+        height: 60%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.2);
+      }
+      
+      .projects-table td {
+        padding: 25px;
+        border: 1px solid #eee;
+        vertical-align: top;
+        transition: all 0.3s ease;
+      }
+      
+      .projects-table td:hover {
+        background-color: #f8f9ff;
+      }
+      
+      .projects-table h4 {
+        color: #5151f2;
+        margin-bottom: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+      }
+      
+      .projects-table h4::before {
+        content: '';
+        display: inline-block;
+        width: 4px;
+        height: 16px;
+        background: #5151f2;
+        margin-right: 10px;
+        border-radius: 2px;
+      }
+      
+      .projects-table ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .projects-table li {
+        margin-bottom: 12px;
+        color: #333;
+        line-height: 1.5;
+        padding-left: 20px;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+      
+      .projects-table li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: #9d4edd;
+        font-size: 18px;
+        line-height: 1;
+      }
+      
+      .projects-table li:hover {
+        transform: translateX(5px);
+        color: #5151f2;
+      }
+      
+      .projects-table tr:nth-child(even) td {
+        background-color: #fafbff;
+      }
+      
+      .projects-table tr:last-child td {
+        border-bottom: none;
+      }
+      
+      .projects-table td:first-child {
+        border-left: none;
+      }
+      
+      .projects-table td:last-child {
+        border-right: none;
+      }
+      
+      @media (max-width: 768px) {
+        .projects-table {
+          margin: 20px -20px;
+          border-radius: 0;
+        }
+        
+        .projects-table table {
+          border-radius: 0;
+        }
+        
+        .projects-table th {
+          font-size: 16px;
+          padding: 15px;
+        }
+        
+        .projects-table td {
+          padding: 20px;
+        }
+        
+        .projects-table h4 {
+          font-size: 15px;
+          margin-bottom: 15px;
+        }
+        
+        .projects-table li {
+          font-size: 14px;
+          margin-bottom: 10px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .projects-table th {
+          font-size: 14px;
+          padding: 12px;
+        }
+        
+        .projects-table td {
+          padding: 15px;
+        }
+        
+        .projects-table h4 {
+          font-size: 14px;
+        }
+        
+        .projects-table li {
+          font-size: 13px;
+          margin-bottom: 8px;
+        }
+      }
+    </style>
+  </div>
+</body>
+</html> 
