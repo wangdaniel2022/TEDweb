@@ -58,6 +58,25 @@
       color: #5151f2;
     }
     
+    /* 返回主页按钮样式 */
+    .home-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #5151f2, #9d4edd);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(81, 81, 242, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .home-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(81, 81, 242, 0.3);
+    }
+    
     /* 移动端适配 */
     @media (max-width: 768px) {
       .header {
@@ -66,6 +85,32 @@
       
       .header__content {
         padding: 10px var(--container-padding);
+      }
+      
+      .mobile-home-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 99;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #5151f2, #9d4edd);
+        color: white;
+        width: auto;
+        height: 50px;
+        padding: 0 20px;
+        border-radius: 25px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        font-weight: 600;
+        font-size: 16px;
+        text-decoration: none;
+      }
+      
+      .mobile-home-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(81, 81, 242, 0.4);
       }
     }
     
@@ -234,11 +279,16 @@
         </div>
         <nav class="nav">
           <ul class="nav__list">
-            <li class="nav__item"><a href="index.html" class="nav__link">返回首页</a></li>
+            <li class="nav__item"><a href="index.html" class="home-btn">返回首页</a></li>
           </ul>
         </nav>
       </div>
     </header>
+
+    <!-- 移动端返回首页按钮 -->
+    <a href="index.html" class="mobile-home-btn" aria-label="返回首页">
+      首页
+    </a>
 
     <!-- 项目明细 -->
     <section class="content-box">
@@ -262,45 +312,45 @@
               <td>
                 <h4>上午场</h4>
                 <ul>
-                  <li>元能镜享 - 张伟林</li>
-                  <li>AIGC全球数源中心 - 王哲文</li>
-                  <li>智荟互联 - 许智猛</li>
-                  <li>万物 - 时钱煜</li>
-                  <li>雀说语训 - 李朋程</li>
-                  <li>洛公子AI - 洛公子</li>
+                  <li>元能镜享<br>张伟林</li>
+                  <li>AIGC全球数源中心<br>王哲文</li>
+                  <li>智荟互联<br>许智猛</li>
+                  <li>万物<br>钱煜</li>
+                  <li>微戈科技<br>李朋程</li>
+                  <li>超空间科技<br>刘德泽</li>
                 </ul>
               </td>
               <td>
                 <h4>上午场</h4>
                 <ul>
-                  <li>番茄炒蛋 - 金海通</li>
-                  <li>南丁机器人 - 李成华</li>
-                  <li>瀚海坤元 - 余培斌</li>
-                  <li>知屿科技 - 柯吴崑</li>
-                  <li>广州哔哔猫 - 马迅</li>
-                  <li>零异造物 - 孙东来</li>
+                  <li>番茄炒蛋<br>金海通</li>
+                  <li>南丁机器人<br>李成华</li>
+                  <li>瀚海坤元<br>余培斌</li>
+                  <li>知屿科技<br>柯吴崑</li>
+                  <li>广州哔哔猫<br>马迅</li>
+                  <li>零异造物<br>孙东来</li>
                 </ul>
               </td>
               <td>
                 <h4>上午场</h4>
                 <ul>
-                  <li>凯度洞察 - 刘大佑</li>
-                  <li>中科心知 - 廖晓光</li>
-                  <li>LuCy AI - 李雯希</li>
-                  <li>杭州汪星人 - 刘曦泽</li>
-                  <li>连系APP - 李禹昂</li>
-                  <li>乐聊名片 - 徐孝青</li>
+                  <li>AI²后说<br>云尚</li>
+                  <li>中科心知<br>廖晓光</li>
+                  <li>Lucy AI<br>李雯希</li>
+                  <li>杭州汪星人<br>刘曦泽</li>
+                  <li>连系APP<br>李禹昂</li>
+                  <li>乐聊名片<br>徐孝青</li>
                 </ul>
               </td>
               <td>
                 <h4>上午场</h4>
                 <ul>
-                  <li>数策时代 - 杨云良</li>
-                  <li>科星智环 - 张文韬</li>
-                  <li>超级球球 - 大白</li>
-                  <li>百无禁忌 - 蒋宏旻</li>
-                  <li>申壮壮 - 熵链智能</li>
-                  <li>纸壳科技 - 刘家志</li>
+                  <li>数策时代<br>杨云良</li>
+                  <li>科星智环<br>张文韬</li>
+                  <li>超级球球<br>大白</li>
+                  <li>医生之眼<br>张羽明</li>
+                  <li>熵链智能<br>申壮壮</li>
+                  <li>纸壳科技<br>刘家志</li>
                 </ul>
               </td>
             </tr>
@@ -308,45 +358,45 @@
               <td>
                 <h4>下午场</h4>
                 <ul>
-                  <li>北冥聆心 - 林晓冬</li>
-                  <li>露电数字 - 刘晓克</li>
-                  <li>智暖银龄 - 唐菲悦</li>
-                  <li>超空间科技 - 刘德泽</li>
-                  <li>赛博创力 - 周芊诺</li>
-                  <li>魔法卟卟 - 周泽亚</li>
+                  <li>北冥聆心<br>林晓冬</li>
+                  <li>露电数字<br>刘晓克</li>
+                  <li>智暖银龄<br>唐菲悦</li>
+                  <li>魔法卟卟<br>周泽亚</li>
+                  <li>洛公子AI<br>洛公子</li>
+                  <li>赛博创力<br>周芊诺</li>
                 </ul>
               </td>
               <td>
                 <h4>下午场</h4>
                 <ul>
-                  <li>甬智AI - 程瑾</li>
-                  <li>三个钓鱼佬 - 谭轶骅</li>
-                  <li>无限语研 - Manta</li>
-                  <li>埃逻科技 - 谢佳豪</li>
-                  <li>万物有灵 - 王奥博</li>
-                  <li>白日梦吴 - 卓佳</li>
+                  <li>甬智AI<br>程瑾</li>
+                  <li>三个钓鱼佬<br>谭轶骅</li>
+                  <li>无限语研<br>Manta</li>
+                  <li>埃逻科技<br>谢佳豪</li>
+                  <li>万物有灵<br>王奥博</li>
+                  <li>白日梦<br>吴卓佳</li>
                 </ul>
               </td>
               <td>
                 <h4>下午场</h4>
                 <ul>
-                  <li>智连AI - 黄佳伟</li>
-                  <li>壹刻校园 - 张亚飞</li>
-                  <li>AI2后说 - 云尚</li>
-                  <li>新颐欣医疗 - 杨钢</li>
-                  <li>时间官 - 童海业</li>
-                  <li>CAX团队 - jenny</li>
+                  <li>智连AI<br>黄佳伟</li>
+                  <li>壹刻校园<br>张亚飞</li>
+                  <li>新颐欣医疗<br>杨钢</li>
+                  <li>时间官<br>童海业</li>
+                  <li>凯度洞察<br>刘大佑</li>
+                  <li>CAX团队<br>jenny</li>
                 </ul>
               </td>
               <td>
                 <h4>下午场</h4>
                 <ul>
-                  <li>医生之眼 - 张羽明</li>
-                  <li>HealthyMax - 马健文</li>
-                  <li>宠有灵犀 - 胡旭辉</li>
-                  <li>生生科技 - 刘骁奔</li>
-                  <li>ParFlow.AI - 蒙乙锋</li>
-                  <li>OK简历 - 徐畅</li>
+                  <li>百无禁忌<br>蒋宏旻</li>
+                  <li>HealthyMax<br>马健文</li>
+                  <li>生生科技<br>刘骁奔</li>
+                  <li>宠有灵犀<br>胡旭辉</li>
+                  <li>ParFlow.AI<br>蒙乙锋</li>
+                  <li>OK简历<br>徐畅</li>
                 </ul>
               </td>
             </tr>
@@ -377,9 +427,9 @@
       .projects-table th {
         background: linear-gradient(135deg, #5151f2, #9d4edd);
         color: white;
-        padding: 20px;
+        padding: 15px 12px;
         text-align: center;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 600;
         position: relative;
         border-bottom: 2px solid rgba(255, 255, 255, 0.2);
@@ -396,14 +446,70 @@
       }
       
       .projects-table td {
-        padding: 25px;
+        padding: 20px 15px;
         border: 1px solid #eee;
         vertical-align: top;
         transition: all 0.3s ease;
+        min-width: 180px;
       }
       
       .projects-table td:hover {
         background-color: #f8f9ff;
+      }
+      
+      .projects-table ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .projects-table li {
+        margin-bottom: 15px;
+        color: #333;
+        line-height: 1.4;
+        padding-left: 15px;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+      
+      .projects-table li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: #9d4edd;
+        font-size: 18px;
+        line-height: 1;
+      }
+      
+      .projects-table li:hover {
+        transform: translateX(3px);
+        color: #5151f2;
+      }
+      
+      .projects-table li br {
+        margin-bottom: 2px;
+      }
+      
+      .projects-table tr:nth-child(even) td {
+        background-color: #fafbff;
+      }
+      
+      .projects-table tr:last-child td {
+        border-bottom: none;
+      }
+      
+      .projects-table td:first-child {
+        border-left: none;
+      }
+      
+      .projects-table td:last-child {
+        border-right: none;
+      }
+      
+      /* 移动项目容器样式 */
+      .mobile-projects-container {
+        display: none;
+        margin: 20px -20px;
       }
       
       .projects-table h4 {
@@ -425,101 +531,188 @@
         border-radius: 2px;
       }
       
-      .projects-table ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+      /* 移动端竖屏优化 */
+      @media (max-width: 768px) and (orientation: portrait) {
+        .mobile-projects-container {
+          display: block;
+        }
+        
+        .mobile-projects-container td {
+          display: block;
+          width: 100%;
+          padding: 20px;
+          border: none;
+          position: relative;
+          margin-bottom: 20px;
+          background: white;
+          border-radius: 12px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .mobile-projects-container h4 {
+          font-size: 18px;
+          margin: 10px 0 15px;
+          padding-left: 15px;
+          border-left: 4px solid #5151f2;
+        }
+        
+        .mobile-projects-container ul {
+          margin: 0;
+          list-style: none;
+          padding: 0;
+        }
+        
+        .mobile-projects-container li {
+          font-size: 15px;
+          margin-bottom: 12px;
+          padding-left: 15px;
+          position: relative;
+          transition: all 0.3s ease;
+        }
+        
+        .mobile-projects-container li::before {
+          content: '•';
+          position: absolute;
+          left: 0;
+          color: #9d4edd;
+          font-size: 18px;
+        }
+        
+        .mobile-projects-container li:hover {
+          transform: translateX(5px);
+          color: #5151f2;
+        }
+        
+        /* 添加日期标题，使用data-mobile-date属性 */
+        .mobile-projects-container td[data-mobile-date]::before {
+          content: attr(data-mobile-date);
+          display: block;
+          background: linear-gradient(135deg, #5151f2, #9d4edd);
+          color: white;
+          padding: 15px 20px;
+          font-size: 18px;
+          font-weight: 600;
+          text-align: center;
+          margin: -20px -20px 20px -20px;
+          border-radius: 12px 12px 0 0;
+        }
+        
+        /* 隐藏移动端中的h4标题 */
+        .mobile-projects-container h4 {
+          display: none;
+        }
       }
       
-      .projects-table li {
-        margin-bottom: 12px;
-        color: #333;
-        line-height: 1.5;
-        padding-left: 20px;
-        position: relative;
-        transition: all 0.3s ease;
-      }
-      
-      .projects-table li::before {
-        content: '•';
-        position: absolute;
-        left: 0;
-        color: #9d4edd;
-        font-size: 18px;
-        line-height: 1;
-      }
-      
-      .projects-table li:hover {
-        transform: translateX(5px);
-        color: #5151f2;
-      }
-      
-      .projects-table tr:nth-child(even) td {
-        background-color: #fafbff;
-      }
-      
-      .projects-table tr:last-child td {
-        border-bottom: none;
-      }
-      
-      .projects-table td:first-child {
-        border-left: none;
-      }
-      
-      .projects-table td:last-child {
-        border-right: none;
-      }
-      
-      @media (max-width: 768px) {
+      /* 横屏保持原有样式 */
+      @media (max-width: 768px) and (orientation: landscape) {
         .projects-table {
-          margin: 20px -20px;
-          border-radius: 0;
+          overflow-x: auto;
         }
         
         .projects-table table {
-          border-radius: 0;
+          display: table;
         }
         
-        .projects-table th {
-          font-size: 16px;
-          padding: 15px;
+        .projects-table thead {
+          display: table-header-group;
         }
         
-        .projects-table td {
-          padding: 20px;
+        .projects-table tbody {
+          display: table-row-group;
         }
         
-        .projects-table h4 {
-          font-size: 15px;
-          margin-bottom: 15px;
-        }
-        
-        .projects-table li {
-          font-size: 14px;
-          margin-bottom: 10px;
-        }
-      }
-      
-      @media (max-width: 480px) {
-        .projects-table th {
-          font-size: 14px;
-          padding: 12px;
+        .projects-table tr {
+          display: table-row;
         }
         
         .projects-table td {
-          padding: 15px;
-        }
-        
-        .projects-table h4 {
-          font-size: 14px;
-        }
-        
-        .projects-table li {
-          font-size: 13px;
-          margin-bottom: 8px;
+          display: table-cell;
+          width: auto;
         }
       }
     </style>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // 创建移动端容器，只创建一次
+        if (!document.querySelector('.mobile-projects-container')) {
+          const mobileContainer = document.createElement('div');
+          mobileContainer.className = 'mobile-projects-container';
+          const tableParent = document.querySelector('.projects-table');
+          tableParent.parentNode.insertBefore(mobileContainer, tableParent.nextSibling);
+        }
+        
+        setupMobileDates();
+        
+        // 监听窗口大小变化，重新设置日期
+        window.addEventListener('resize', setupMobileDates);
+      });
+      
+      function setupMobileDates() {
+        const table = document.querySelector('.projects-table table');
+        const mobileContainer = document.querySelector('.mobile-projects-container');
+        
+        // 如果元素不存在，直接返回
+        if (!table || !mobileContainer) return;
+        
+        // 判断是否为移动端竖屏
+        if (window.innerWidth <= 768 && window.innerHeight > window.innerWidth) {
+          // 清空移动容器
+          mobileContainer.innerHTML = '';
+          
+          // 获取表头日期
+          const dates = Array.from(table.querySelectorAll('thead th')).map(th => th.innerText);
+          const sessions = ['上午场', '下午场'];
+          
+          // 按日期和场次顺序重新排列
+          for (let dateIndex = 0; dateIndex < dates.length; dateIndex++) {
+            for (let sessionIndex = 0; sessionIndex < sessions.length; sessionIndex++) {
+              // 找到对应的单元格
+              const rows = table.querySelectorAll('tbody tr');
+              
+              if (rows.length > sessionIndex && rows[sessionIndex].children.length > dateIndex) {
+                const originalCell = rows[sessionIndex].children[dateIndex];
+                const cell = originalCell.cloneNode(true);
+                
+                // 设置日期属性 - 使用完整的格式
+                cell.setAttribute('data-mobile-date', dates[dateIndex] + ' ' + sessions[sessionIndex]);
+                
+                // 添加到移动容器
+                mobileContainer.appendChild(cell);
+              }
+            }
+          }
+          
+          // 显示移动容器，隐藏原表格
+          table.style.display = 'none';
+          mobileContainer.style.display = 'block';
+        } else {
+          // 非移动端竖屏模式，显示原表格，隐藏移动容器
+          table.style.display = '';
+          mobileContainer.style.display = 'none';
+        }
+      }
+
+      // 移动端按钮控制脚本
+      document.addEventListener('DOMContentLoaded', function() {
+        const mobileHomeBtn = document.querySelector('.mobile-home-btn');
+        
+        // 初始化控制显示隐藏
+        updateButtonVisibility();
+        
+        // 监听窗口大小变化
+        window.addEventListener('resize', updateButtonVisibility);
+        
+        function updateButtonVisibility() {
+          // 仅在移动端显示
+          if (window.innerWidth <= 768) {
+            mobileHomeBtn.style.display = 'flex';
+          } else {
+            mobileHomeBtn.style.display = 'none';
+          }
+        }
+      });
+    </script>
   </div>
 </body>
 </html> 
