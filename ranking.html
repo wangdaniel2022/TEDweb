@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>本次路演项目前十</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    body {
+      background-color: #f5f7fa;
+      color: #000;
+    }
+    .content-box {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      padding: 40px;
+      margin: 100px auto 30px;
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .section-subtitle {
+      font-size: 18px;
+      color: #666;
+    }
+    .ranking-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      margin: 0 auto;
+    }
+    .ranking-table th {
+      background: linear-gradient(135deg, #5151f2, #9d4edd);
+      color: white;
+      padding: 15px 12px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .ranking-table td {
+      padding: 16px 12px;
+      border: 1px solid #eee;
+      text-align: center;
+      font-size: 16px;
+      color: #333;
+    }
+    .ranking-table tr:nth-child(even) td {
+      background-color: #fafbff;
+    }
+    @media (max-width: 768px) {
+      .content-box {
+        padding: 20px;
+        margin: 15px auto;
+      }
+      .section-title {
+        font-size: 24px;
+      }
+      .ranking-table th, .ranking-table td {
+        font-size: 14px;
+        padding: 10px 6px;
+      }
+    }
+    .home-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #5151f2, #9d4edd);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(81, 81, 242, 0.2);
+      transition: all 0.3s ease;
+      margin-bottom: 30px;
+    }
+    .home-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(81, 81, 242, 0.3);
+    }
+    /* 导航栏毛玻璃效果 */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+    .header__content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .logo-img {
+      height: 48px;
+      width: auto;
+      transition: all 0.3s ease;
+    }
+    .logo img {
+      height: 48px;
+      width: auto;
+      transition: all 0.3s ease;
+    }
+    @media (max-width: 1024px) {
+      .logo-group {
+        gap: 10px;
+      }
+      .logo-img,
+      .logo img {
+        height: 40px;
+      }
+    }
+    @media (max-width: 768px) {
+      .header {
+        background: rgba(255, 255, 255, 0.4);
+      }
+      .header__content {
+        padding: 10px 12px;
+      }
+      .logo-group {
+        gap: 8px;
+      }
+      .logo-img,
+      .logo img {
+        height: 32px;
+      }
+    }
+    @media (max-width: 480px) {
+      .logo-group {
+        gap: 5px;
+      }
+      .logo-img,
+      .logo img {
+        height: 24px;
+      }
+      .header__content {
+        padding: 0 8px;
+      }
+    }
+    @media (max-width: 360px) {
+      .logo-img,
+      .logo img {
+        height: 20px;
+      }
+    }
+    .nav__list {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .nav__item {
+      margin: 0;
+    }
+    .home-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #5151f2, #9d4edd);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(81, 81, 242, 0.2);
+      transition: all 0.3s ease;
+      margin-bottom: 0;
+    }
+    .home-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(81, 81, 242, 0.3);
+    }
+    /* 内容区顶部留出导航栏高度 */
+    .container {
+      padding-top: 80px;
+    }
+    @media (max-width: 768px) {
+      .container {
+        padding-top: 60px;
+      }
+    }
+    @media (max-width: 480px) {
+      .container {
+        padding-top: 48px;
+      }
+    }
+    .mobile-home-btn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #5151f2, #9d4edd);
+      color: white;
+      width: auto;
+      height: 50px;
+      padding: 0 20px;
+      border-radius: 25px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      .mobile-home-btn {
+        display: flex;
+      }
+      .container {
+        padding-bottom: 80px;
+      }
+    }
+    .mobile-home-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(81, 81, 242, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header__content">
+        <div class="logo-group">
+          <img src="logos/xihu-group.png" alt="西湖文旅集团" class="logo-img">
+          <a href="index.html" class="logo">
+            <img src="logo-10.png" alt="杭州文三AI消费者嘉年华">
+          </a>
+        </div>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item"><a href="index.html" class="home-btn">返回首页</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- 移动端返回首页按钮 -->
+    <a href="index.html" class="mobile-home-btn" aria-label="返回首页">
+      首页
+    </a>
+
+    <section class="content-box">
+      <div class="section-header">
+        <h2 class="section-title">本次路演项目前十</h2>
+        <p class="section-subtitle">根据观众投票，以下为本次路演项目前十排名</p>
+      </div>
+      <div class="ranking-table-wrapper">
+        <table class="ranking-table">
+          <thead>
+            <tr>
+              <th>排名</th>
+              <th>团队名称</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>超级球球-大白</td></tr>
+            <tr><td>2</td><td>广州哔哔猫-马迅</td></tr>
+            <tr><td>3</td><td>中科心知-廖晓光</td></tr>
+            <tr><td>4</td><td>科星智环-张文韬</td></tr>
+            <tr><td>5</td><td>HealthyMax-马建文</td></tr>
+            <tr><td>6</td><td>元能镜享-张伟林</td></tr>
+            <tr><td>7</td><td>智荟互联-许智猛</td></tr>
+            <tr><td>8</td><td>瀚海坤元-余培斌</td></tr>
+            <tr><td>9</td><td>壹刻校园-张富康</td></tr>
+            <tr><td>10</td><td>AIGC全球数源中心-王哲文</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // 移动端按钮控制脚本
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileHomeBtn = document.querySelector('.mobile-home-btn');
+      function updateButtonVisibility() {
+        if (window.innerWidth <= 768) {
+          mobileHomeBtn.style.display = 'flex';
+        } else {
+          mobileHomeBtn.style.display = 'none';
+        }
+      }
+      updateButtonVisibility();
+      window.addEventListener('resize', updateButtonVisibility);
+    });
+  </script>
+</body>
+</html> 
